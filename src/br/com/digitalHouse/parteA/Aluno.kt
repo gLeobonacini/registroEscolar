@@ -1,0 +1,10 @@
+package br.com.digitalHouse.parteA
+
+data class Aluno(val nome: String, val sobrenome: String, val codigoDeAluno: Int) {
+    override fun equals(other: Any?): Boolean {
+        if(other == null || other !is Aluno)
+            return false
+        else
+            return this.codigoDeAluno == other.codigoDeAluno
+    }
+}
