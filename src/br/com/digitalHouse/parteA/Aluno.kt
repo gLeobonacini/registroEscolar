@@ -1,6 +1,6 @@
 package br.com.digitalHouse.parteA
 
-data class Aluno(val nome: String, val sobrenome: String, val codigoDeAluno: Int) {
+class Aluno(val nome: String, val sobrenome: String, val codigoDeAluno: Int) {
     // Alterando função equals para comparar apenas codigoDeAluno
     override fun equals(other: Any?): Boolean {
         if(other == null || other !is Aluno)
