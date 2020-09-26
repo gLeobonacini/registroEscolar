@@ -1,11 +1,11 @@
-package br.com.digitalHouse.parteI
+package br.com.digitalHouse.parteJ
 
 class DigitalHouseManager() {
 
-    val listaDeAlunos = mutableListOf<Aluno>()
-    val listaDeProfessores = mutableListOf<IProfessor>()
-    val listaDeCursos = mutableListOf<Curso>()
-    val listaDeMatriculas = mutableListOf<Matricula>()
+    private val listaDeAlunos = mutableListOf<Aluno>()
+    private val listaDeProfessores = mutableListOf<IProfessor>()
+    private val listaDeCursos = mutableListOf<Curso>()
+    private val listaDeMatriculas = mutableListOf<Matricula>()
 
     // Função para registrar um curso
     fun registrarCurso(nome: String, codigoCurso: Int, quantidadeMaximaDeAluno: Int){
@@ -97,16 +97,16 @@ class DigitalHouseManager() {
                                 val matricula = Matricula(aluno,curso)
                                 listaDeMatriculas.add(matricula)
                                 curso.listaDeAlunos.add(aluno)
-                                println("Matricula de ${aluno.nome} realizada com sucesso no curso ${curso.nome}")
+                                println("Matricula de ${aluno.nome} realizada com sucesso no curso ${curso.nome}.")
                             }
-                            false -> println("Não foi possível realizar a matrícula de ${aluno.nome} porque não há vagas")
+                            false -> println("Não foi possível realizar a matrícula de ${aluno.nome} porque não há vagas.")
                         }
                     }
-                    false -> println("Curso não encontrado")
+                    false -> println("Curso não encontrado.")
                 }
 
             }
-            false -> println("Aluno não foi encontrado")
+            false -> println("Aluno não foi encontrado.")
         }
     }
 

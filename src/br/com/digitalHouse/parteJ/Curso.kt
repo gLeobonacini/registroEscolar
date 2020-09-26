@@ -1,4 +1,4 @@
-package br.com.digitalHouse.parteI
+package br.com.digitalHouse.parteJ
 
 class Curso(val nome: String,
             val codigoDeCurso: Int,
