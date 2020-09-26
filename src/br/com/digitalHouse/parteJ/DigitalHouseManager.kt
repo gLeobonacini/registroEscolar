@@ -9,7 +9,7 @@ class DigitalHouseManager() {
 
     // Função para registrar um curso
     fun registrarCurso(nome: String, codigoCurso: Int, quantidadeMaximaDeAluno: Int){
-        val curso = Curso(nome,codigoCurso,quantidadeMaximaDeAluno)
+        val curso = Curso(nome, codigoCurso, quantidadeMaximaDeAluno)
         val cursoExiste = listaDeCursos.find { it.codigoDeCurso == codigoCurso }
         when(cursoExiste != null){
             true -> println("Curso $nome já existe.")
@@ -72,7 +72,7 @@ class DigitalHouseManager() {
 
     // Função para matricular aluno
     fun registrarAluno(nome: String, sobrenome: String, codigoAluno: Int){
-        val aluno = Aluno(nome,sobrenome,codigoAluno)
+        val aluno = Aluno(nome, sobrenome, codigoAluno)
         val alunoExiste = listaDeAlunos.find { it.codigoDeAluno == codigoAluno }
         when(alunoExiste != null){
             true -> println("Aluno $nome já está registrado.")
@@ -94,10 +94,11 @@ class DigitalHouseManager() {
                     true -> {
                         when (curso.quantidadeMaximaDeAlunos > curso.listaDeAlunos.size){
                             true -> {
-                                val matricula = Matricula(aluno,curso)
-                                listaDeMatriculas.add(matricula)
-                                curso.listaDeAlunos.add(aluno)
-                                println("Matricula de ${aluno.nome} realizada com sucesso no curso ${curso.nome}.")
+                                if(curso.adicionarAluno(aluno)){
+                                    val matricula = Matricula(aluno, curso)
+                                    listaDeMatriculas.add(matricula)
+                                    println("***** Matrícula Finalizada com Sucesso *****")
+                                }
                             }
                             false -> println("Não foi possível realizar a matrícula de ${aluno.nome} porque não há vagas.")
                         }

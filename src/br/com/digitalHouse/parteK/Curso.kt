@@ -15,13 +15,13 @@ class Curso(val nome: String,
                 val alunoExiste = listaDeAlunos.find{it.codigoDeAluno == aluno.codigoDeAluno}
                 when(alunoExiste != null){
                     true -> {
-                        listaDeAlunos.add(aluno)
-                        println("Aluno adicionado no curso $nome.")
-                        return true
-                    }
-                    false -> {
                         println("Aluno já cadastrado no curso $nome.")
                         return false
+                    }
+                    false -> {
+                        listaDeAlunos.add(aluno)
+                        println("Aluno ${aluno.nome} adicionado no curso $nome.")
+                        return true
                     }
                 }
             }
@@ -36,11 +36,11 @@ class Curso(val nome: String,
     fun excluirAluno(aluno: Aluno){
         val alunoExiste = listaDeAlunos.find{it.codigoDeAluno == aluno.codigoDeAluno}
          when(alunoExiste != null){
-            true -> println("O aluno não está cadastrado no curso $nome.")
-            false -> {
+            true -> {
                 listaDeAlunos.remove(aluno)
                 println("Aluno foi retirado do curso $nome.")
             }
+            false -> println("O aluno não está cadastrado no curso $nome.")
          }
     }
 }

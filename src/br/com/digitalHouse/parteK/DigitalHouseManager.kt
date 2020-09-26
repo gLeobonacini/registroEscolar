@@ -94,10 +94,11 @@ class DigitalHouseManager() {
                     true -> {
                         when (curso.quantidadeMaximaDeAlunos > curso.listaDeAlunos.size){
                             true -> {
-                                val matricula = Matricula(aluno,curso)
-                                listaDeMatriculas.add(matricula)
-                                curso.listaDeAlunos.add(aluno)
-                                println("Matricula de ${aluno.nome} realizada com sucesso no curso ${curso.nome}.")
+                                if(curso.adicionarAluno(aluno)){
+                                    val matricula = Matricula(aluno,curso)
+                                    listaDeMatriculas.add(matricula)
+                                    println("***** Matrícula Finalizada com Sucesso *****")
+                                }
                             }
                             false -> println("Não foi possível realizar a matrícula de ${aluno.nome} porque não há vagas.")
                         }

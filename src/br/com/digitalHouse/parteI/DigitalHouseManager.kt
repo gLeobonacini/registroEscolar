@@ -9,7 +9,7 @@ class DigitalHouseManager() {
 
     // Função para registrar um curso
     fun registrarCurso(nome: String, codigoCurso: Int, quantidadeMaximaDeAluno: Int){
-        val curso = Curso(nome,codigoCurso,quantidadeMaximaDeAluno)
+        val curso = Curso(nome, codigoCurso, quantidadeMaximaDeAluno)
         val cursoExiste = listaDeCursos.find { it.codigoDeCurso == codigoCurso }
         when(cursoExiste != null){
             true -> println("Curso $nome já existe.")
@@ -72,7 +72,7 @@ class DigitalHouseManager() {
 
     // Função para matricular aluno
     fun registrarAluno(nome: String, sobrenome: String, codigoAluno: Int){
-        val aluno = Aluno(nome,sobrenome,codigoAluno)
+        val aluno = Aluno(nome, sobrenome, codigoAluno)
         val alunoExiste = listaDeAlunos.find { it.codigoDeAluno == codigoAluno }
         when(alunoExiste != null){
             true -> println("Aluno $nome já está registrado.")
@@ -94,19 +94,20 @@ class DigitalHouseManager() {
                     true -> {
                         when (curso.quantidadeMaximaDeAlunos > curso.listaDeAlunos.size){
                             true -> {
-                                val matricula = Matricula(aluno,curso)
-                                listaDeMatriculas.add(matricula)
-                                curso.listaDeAlunos.add(aluno)
-                                println("Matricula de ${aluno.nome} realizada com sucesso no curso ${curso.nome}")
+                                if(curso.adicionarAluno(aluno)){
+                                    val matricula = Matricula(aluno, curso)
+                                    listaDeMatriculas.add(matricula)
+                                    println("***** Matrícula Finalizada com Sucesso *****")
+                                }
                             }
-                            false -> println("Não foi possível realizar a matrícula de ${aluno.nome} porque não há vagas")
+                            false -> println("Não foi possível realizar a matrícula de ${aluno.nome} porque não há vagas.")
                         }
                     }
-                    false -> println("Curso não encontrado")
+                    false -> println("Curso não encontrado.")
                 }
 
             }
-            false -> println("Aluno não foi encontrado")
+            false -> println("Aluno não foi encontrado.")
         }
     }
 
@@ -133,6 +134,15 @@ class DigitalHouseManager() {
 
             }
             false -> println("Curso não encontrado")
+        }
+    }
+
+    // Consultar código em que o aluno foi matriculado
+    fun consultarCurso(codigoAluno: Int){
+        val matricula = listaDeMatriculas.find{it.aluno.codigoDeAluno == codigoAluno}
+        when (matricula != null){
+            true -> println("O aluno ${matricula.aluno.nome} está matriculado no curso ${matricula.curso.nome}")
+            false -> println("Aluno não encontrado")
         }
     }
 }
