@@ -1,6 +1,6 @@
 package br.com.digitalHouse.parteE
 
-class Aluno(val nome: String,
+data class Aluno(val nome: String,
             val sobrenome: String,
             val codigoDeAluno: Int) {
     // Alterando função equals para comparar apenas codigoDeAluno

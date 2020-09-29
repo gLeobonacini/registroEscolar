@@ -1,5 +1,7 @@
 package br.com.digitalHouse.parteI
 
+import java.util.*
+
 class DigitalHouseManager() {
 
     val listaDeAlunos = mutableListOf<Aluno>()
@@ -95,7 +97,7 @@ class DigitalHouseManager() {
                         when (curso.quantidadeMaximaDeAlunos > curso.listaDeAlunos.size){
                             true -> {
                                 if(curso.adicionarAluno(aluno)){
-                                    val matricula = Matricula(aluno, curso)
+                                    val matricula = Matricula(aluno, curso, Date())
                                     listaDeMatriculas.add(matricula)
                                     println("***** Matrícula Finalizada com Sucesso *****")
                                 }

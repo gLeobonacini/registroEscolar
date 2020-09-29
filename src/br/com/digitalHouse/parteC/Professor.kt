@@ -1,6 +1,6 @@
 package br.com.digitalHouse.parteC
 
-class Professor(val nome: String,
+data class Professor(val nome: String,
                 val sobrenome: String,
                 val tempoDeCasa: Int,
                 val codigoDeProfessor: Int) {

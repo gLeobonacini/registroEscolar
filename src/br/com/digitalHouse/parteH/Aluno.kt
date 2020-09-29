@@ -1,6 +1,6 @@
 package br.com.digitalHouse.parteH
 
-class Aluno(val nome: String,
+data class Aluno(val nome: String,
             val sobrenome: String,
             val codigoDeAluno: Int) {
 }

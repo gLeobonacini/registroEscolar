@@ -1,6 +1,6 @@
 package br.com.digitalHouse.parteD
 
-class ProfessorTitular(
+data class ProfessorTitular(
     override val nome: String,
     override val sobrenome: String,
     override val tempoDeCasa: Int,

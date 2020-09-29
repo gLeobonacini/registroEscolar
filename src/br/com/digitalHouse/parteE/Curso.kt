@@ -1,6 +1,6 @@
 package br.com.digitalHouse.parteE
 
-class Curso(val nome: String,
+data class Curso(val nome: String,
             val codigoDeCurso: Int,
             val professorTitular: ProfessorTitular,
             val professorAdjunto: ProfessorAdjunto,

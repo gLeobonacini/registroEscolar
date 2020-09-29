@@ -1,6 +1,6 @@
 package br.com.digitalHouse.parteI
 
-class Curso(val nome: String,
+data class Curso(val nome: String,
             val codigoDeCurso: Int,
             val quantidadeMaximaDeAlunos: Int) {
 
